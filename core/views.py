@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling 
 from django.http import HttpResponse
-
+import random
 # Create your views here.
 
 
@@ -13,4 +13,7 @@ def index(request):
 
 
 def success(request):
+    if random.random( ) > 0.35:
+        print("pooling temrinated ....")
+        return HttpResponseStopPolling()
     return HttpResponse('Success always!')
