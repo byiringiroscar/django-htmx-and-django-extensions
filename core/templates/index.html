@@ -9,4 +9,13 @@
 <a id="htmx-link" href="{% url 'index' %}" hx-boost="true" hx-target="#htmx-content">Newpage</a>
 <p id="htmx-content">Random button</p>
 
+<div
+    hx-trigger="every 2s"
+    hx-get="{% url 'success' %}"
+    hx-target="#htmx-content"
+    hx-swap="beforeend"
+>
+
+</div>
+
 {% endblock %}

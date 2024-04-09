@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling
+from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling 
 from django.http import HttpResponse
 
 # Create your views here.
