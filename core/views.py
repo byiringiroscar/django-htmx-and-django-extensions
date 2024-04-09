@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling, push_url, reswap, retarget
+from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling, push_url, reswap, retarget, trigger_client_event
 from django.http import HttpResponse
 import random
 from core.forms import FilmForm
@@ -10,7 +10,8 @@ def index(request):
     if request.htmx:
         form = FilmForm(request.GET)
         if form.is_valid():
-            return HttpResponse("Successfully submitted form!")
+            response = HttpResponse("Successfully submitted form!")
+            return (response, 'film-added')
         context = {
             'form': form
         }
@@ -32,4 +33,4 @@ def success(request):
     if random.random( ) > 0.35:
         print("pooling temrinated ....")
         return HttpResponseStopPolling()
-    return HttpResponse('Success always!')
+    return HttpResponse('Success always!')trigger_client_event
