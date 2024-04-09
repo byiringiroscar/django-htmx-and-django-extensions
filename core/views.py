@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling, push_url, reswap
+from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling, push_url, reswap, retarget
 from django.http import HttpResponse
 import random
 from core.forms import FilmForm
@@ -14,7 +14,8 @@ def index(request):
         context = {
             'form': form
         }
-        return render(request, 'form.html', context)
+        response = render(request, 'form.html', context)
+        return retarget(response, '#page-content')
         # return HttpResponseL
         # ocation('/success/', target="#htmx-content")
         # response = render(request, 'partial.html')
