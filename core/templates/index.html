@@ -6,16 +6,16 @@
 <h1>Home</h1>
 
 
-<a id="htmx-link" href="{% url 'index' %}" hx-boost="true" hx-target="#htmx-content" hx-push-url="/lorem/">Newpage</a>
+<a id="htmx-link" href="{% url 'index' %}" hx-boost="true" hx-target="#htmx-content">Newpage</a>
 <p id="htmx-content">Random button</p>
 
-<div
+<!-- <div
     hx-trigger="every 2s"
     hx-get="{% url 'success' %}"
     hx-target="#htmx-content"
     hx-swap="beforeend"
 >
 
-</div>
+</div> -->
 
 {% endblock %}

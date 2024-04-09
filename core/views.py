@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling 
+from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling, push_url
 from django.http import HttpResponse
 import random
 # Create your views here.
@@ -8,7 +8,8 @@ import random
 def index(request):
     if request.htmx:
         # return HttpResponseLocation('/success/', target="#htmx-content")
-        return render(request, 'partial.html')
+        response = render(request, 'partial.html')
+        return push_url(response, '/lorem/')
     return render(request, 'index.html')
 
 
