@@ -11,7 +11,7 @@ def index(request):
         form = FilmForm(request.GET)
         if form.is_valid():
             response = HttpResponse("Successfully submitted form!")
-            return (response, 'film-added')
+            return trigger_client_event(response, 'film-added')
         context = {
             'form': form
         }
@@ -33,4 +33,4 @@ def success(request):
     if random.random( ) > 0.35:
         print("pooling temrinated ....")
         return HttpResponseStopPolling()
-    return HttpResponse('Success always!')trigger_client_event
+    return HttpResponse('Success always!')
