@@ -6,6 +6,7 @@
 <h1>Home</h1>
 
 
-<a hx-get="{% url 'index' %}" hx-swap="outerHTML" hx-target="#main">Newpage</a>
+<a id="htmx-link" hx-get="{% url 'index' %}" hx-target="#random-btn">Newpage</a>
+<button id="random-btn">Random button</button>
 
 {% endblock %}
