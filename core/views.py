@@ -8,11 +8,15 @@ from core.forms import FilmForm
 
 def index(request):
     if request.htmx:
-        # return HttpResponseLocation('/success/', target="#htmx-content")
+        form = FilmForm(request.GET)
+        if form.is_valid():
+            return HttpResponse("Successfully submitted form!")
+        # return HttpResponseL
+        # ocation('/success/', target="#htmx-content")
         # response = render(request, 'partial.html')
         # return push_url(response, '/lorem/')
-        response  = render(request, 'partial.html')
-        return reswap(response, 'beforeend')
+        # response  = render(request, 'partial.html')
+        # return reswap(response, 'beforeend')
     context = {
         'form': FilmForm()
     }
