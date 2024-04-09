@@ -7,8 +7,8 @@ import random
 
 def index(request):
     if request.htmx:
-        return HttpResponseLocation('/success/', target="#htmx-content")
-        # return render(request, 'partial.html')
+        # return HttpResponseLocation('/success/', target="#htmx-content")
+        return render(request, 'partial.html')
     return render(request, 'index.html')
 
 
