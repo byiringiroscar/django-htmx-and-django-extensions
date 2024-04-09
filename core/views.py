@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django_htmx.http import HttpResponseLocation, HttpResponseStopPolling, push_url, reswap
 from django.http import HttpResponse
 import random
+from core.forms import FilmForm
 # Create your views here.
 
 
@@ -12,7 +13,10 @@ def index(request):
         # return push_url(response, '/lorem/')
         response  = render(request, 'partial.html')
         return reswap(response, 'beforeend')
-    return render(request, 'index.html')
+    context = {
+        'form': FilmForm()
+    }
+    return render(request, 'index.html', context)
 
 
 def success(request):
