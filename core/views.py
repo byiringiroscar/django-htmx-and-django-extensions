@@ -11,6 +11,10 @@ def index(request):
         form = FilmForm(request.GET)
         if form.is_valid():
             return HttpResponse("Successfully submitted form!")
+        context = {
+            'form': form
+        }
+        return render(request, 'form.html', context)
         # return HttpResponseL
         # ocation('/success/', target="#htmx-content")
         # response = render(request, 'partial.html')
